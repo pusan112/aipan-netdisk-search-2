@@ -21,7 +21,12 @@ useHead({
     ]
 });
 import Hls from "hls.js";
-import videojs from "video.js";
+let videojs
+
+onMounted(async () => {
+  const mod = await import('video.js')
+  videojs = mod.default
+});
 import "video.js/dist/video-js.css";
 import bgImage from '~/assets/tv-bg-1.jpg';
 import { sourcesAipan } from "~/assets/vod/tv";
